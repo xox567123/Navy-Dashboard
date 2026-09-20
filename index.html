@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Navy Dashboard</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0a0f1a; /* dark navy */
+        color: white;
+        text-align: center;
+    }
+
+    .logo {
+        width: 90px;
+        margin-top: 25px;
+        opacity: 0.9;
+    }
+
+    h1 {
+        font-size: 38px;
+        margin-top: 10px;
+        font-weight: 700;
+    }
+
+    #plusBtn {
+        margin-top: 40px;
+        background: #112244;
+        color: white;
+        border: none;
+        padding: 18px 32px;
+        font-size: 20px;
+        border-radius: 40px;
+        cursor: pointer;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #plusBtn:hover {
+        background: #1a2f55;
+    }
+
+    #notepad {
+        margin: 40px auto;
+        width: 80%;
+        max-width: 600px;
+        height: 300px;
+        display: none;
+        background: #ffffff;
+        color: black;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 16px;
+        outline: none;
+        resize: none;
+    }
+</style>
+</head>
+<body>
+
+<!-- Navy Seal Logo (public domain style) -->
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/United_States_Navy_Seal.svg/1200px-United_States_Navy_Seal.svg.png">
+
+<h1>Navy Dashboard</h1>
+
+<button id="plusBtn">
+    ➕ Add Note
+</button>
+
+<textarea id="notepad" placeholder="Write your notes here..."></textarea>
+
+<script>
+    const plusBtn = document.getElementById("plusBtn");
+    const notepad = document.getElementById("notepad");
+
+    plusBtn.addEventListener("click", () => {
+        notepad.style.display = "block";
+        plusBtn.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
