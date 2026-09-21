@@ -60,7 +60,6 @@
         letter-spacing: 1px;
     }
 
-    /* Pages */
     .page {
         display: none;
         margin-top: 40px;
@@ -94,11 +93,20 @@
         background: #24426f;
     }
 
-    video {
-        width: 80%;
-        max-width: 700px;
+    .cctv-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+        justify-items: center;
+    }
+
+    iframe {
+        width: 100%;
+        height: 200px;
         border-radius: 10px;
-        margin-top: 20px;
+        border: 2px solid #1f2a35;
+        pointer-events: none;
     }
 </style>
 </head>
@@ -106,7 +114,6 @@
 
 <h1>Navy SEAL Dashboard</h1>
 
-<!-- MAIN GRID -->
 <div id="mainGrid" class="grid">
 
     <div>
@@ -141,27 +148,43 @@
 
 <!-- CAMERA PAGE -->
 <div id="cameraPage" class="page">
-    <h2>Camera Feed</h2>
+    <h2>CCTV Camera Wall</h2>
 
-    <video id="camVid" controls autoplay>
-        <source id="camSource" src="" type="video/mp4">
-    </video>
+    <div class="cctv-grid">
 
-    <br>
+        <!-- 5 fixed CCTV feeds -->
+        <iframe src="https://www.youtube.com/embed/2k8WgZV1JqE?autoplay=1&mute=1&controls=0&disablekb=1&modestbranding=1&playsinline=1"></iframe>
+
+        <iframe src="https://www.youtube.com/embed/9CqJrNwO7rU?autoplay=1&mute=1&controls=0&disablekb=1&modestbranding=1&playsinline=1"></iframe>
+
+        <iframe src="https://www.youtube.com/embed/0t1vZ1tcHTg?autoplay=1&mute=1&controls=0&disablekb=1&modestbranding=1&playsinline=1"></iframe>
+
+        <iframe src="https://www.youtube.com/embed/3yJtV7xZq9M?autoplay=1&mute=1&controls=0&disablekb=1&modestbranding=1&playsinline=1"></iframe>
+
+        <iframe src="https://www.youtube.com/embed/1qkYk9Jt8sQ?autoplay=1&mute=1&controls=0&disablekb=1&modestbranding=1&playsinline=1"></iframe>
+
+    </div>
+
     <button class="backBtn" onclick="goBack()">Back</button>
 </div>
 
-<!-- OPS PAGE -->
+<!-- OPERATIONS PAGE -->
 <div id="opsPage" class="page">
-    <h2>Operations</h2>
-    <p>Placeholder page — you can tell me what you want here.</p>
+    <h2>Operations Command</h2>
+    <p>• Mission Status: Active<br>
+       • Threat Level: Moderate<br>
+       • Deployment Teams: SEAL Team 4, Recon Unit Bravo<br>
+       • Last Update: 14 minutes ago</p>
     <button class="backBtn" onclick="goBack()">Back</button>
 </div>
 
 <!-- INTEL PAGE -->
 <div id="intelPage" class="page">
-    <h2>Intel</h2>
-    <p>Placeholder page — add whatever intel features you want.</p>
+    <h2>Intel Database</h2>
+    <p>• Facility Map Loaded<br>
+       • 3 Persons of Interest Flagged<br>
+       • Last Recon Scan: 6 minutes ago<br>
+       • Classified Notes: Encryption Level 5</p>
     <button class="backBtn" onclick="goBack()">Back</button>
 </div>
 
@@ -169,28 +192,11 @@
     function openPage(pageId) {
         document.getElementById("mainGrid").style.display = "none";
         document.getElementById(pageId).style.display = "block";
-
-        if (pageId === "cameraPage") {
-            playRandomCamera();
-        }
     }
 
     function goBack() {
         document.querySelectorAll('.page').forEach(p => p.style.display = "none");
         document.getElementById("mainGrid").style.display = "grid";
-    }
-
-    function playRandomCamera() {
-        const clips = [
-            "https://cdn.discordapp.com/attachments/123/robloxprison1.mp4",
-            "https://cdn.discordapp.com/attachments/123/robloxprison2.mp4",
-            "https://cdn.discordapp.com/attachments/123/robloxprison3.mp4"
-        ];
-
-        const randomClip = clips[Math.floor(Math.random() * clips.length)];
-        document.getElementById("camSource").src = randomClip;
-        document.getElementById("camVid").load();
-        document.getElementById("camVid").play();
     }
 </script>
 
